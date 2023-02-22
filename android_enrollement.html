@@ -36,63 +36,44 @@
         <li>.apk</li> 
         <li>application/vnd.android.package-archive</li> 
     </ul>
-
-    <h2>Commands to get log from runing app</h2>
-    <ul>
-        <li>flutter logs</li> 
-    </ul>
-
-    <h2>Commands to manage packages of your project</h2>
-    <ul>
-        <li>flutter clean</li> 
-        <li>flutter pub get</li> 
-        <li>flutter pub cache repair</li> 
-    </ul>
-
-    <h2>Commands to run the code generator</h2>
-    <ul>
-        <li>flutter pub run build_runner build --delete-conflicting-outputs</li> 
-        <li>flutter pub run build_runner watch --delete-conflicting-outputs</li> 
-    </ul>
-
-    <h2>To get sha-1 of your app for firebase use these commands </h2>
-    <p>use the twi commands below for more information check the documentation in this <a href="https://developers.google.com/android/guides/client-auth?authuser=0&hl=en">link</a></p>
-    <ul>
-        <li>cd android</li> 
-        <li>./gradlew signingReport</li> 
-    </ul>
+ 
+    <h2>then use this text in your qr-code</h2>
+    <pre>
+    {
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME":"dz.saticom.atsatisfaction/dz.saticom.atsatisfaction.MyDeviceAdminReceiver",
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM":"WowPAnd4lBGDoDJ2A2JOUcXkY4nswxAufoBoN8FyYGE=",
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION":"http://192.168.1.250:9000/algerietelecom/app-release.apk",
+    "android.app.extra.PROVISIONING_WIFI_SSID": "APDOL",
+    "android.app.extra.PROVISIONING_WIFI_PASSWORD": "S@t$26062022",
+    "android.app.extra.PROVISIONING_WIFI_SECURITY_TYPE": "WPA",
+    "android.app.extra.PROVISIONING_WIFI_HIDDEN": true,
+    "android.app.extra.PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED ": false,
+    "android.app.extra.PROVISIONING_ALLOW_OFFLINE": true,
+    "android.app.extra.PROVISIONING_USE_MOBILE_DATA": true,
+    "android.app.extra.PROVISIONING_KEEP_SCREEN_ON": true,
+    "android.app.extra.PERMISSION_POLICY_AUTO_GRANT": true,
+    "android.app.extra.NEARBY_STREAMING_NOT_CONTROLLED_BY_POLICY": true
+    }
+    </pre>
+     <p>you can either use ADMIN_SIGNATURE_CHECKSUM or ADMIN_PACKAGE_CHECKSUM</p>
+    <pre>
+    { 
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME":"dz.saticom.atsatisfaction/dz.saticom.atsatisfaction.MyDeviceAdminReceiver",
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM":"WowPAnd4lBGDoDJ2A2JOUcXkY4nswxAufoBoN8FyYGE_",
+    "android.app.extra.PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION":"http://192.168.1.233/test.apk",
+    "android.app.extra.PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED ": false
+    }
+    </pre>
     
-    <h2>The usege of some packages</h2>
-    <h3>icons package</h3>
-    <p>flutter_launcher_icons: ^0.9.2<br> 
-        then set this code in yaml</p>
-   <pre>flutter_icons: 
-  android: "launcher_icon" 
-  ios: true 
-  image_path: "assets/appicon.png" </pre>
-          <p> then run</p>
-          
-          <ul>
-            <li>flutter pub run flutter_launcher_icons:main -f pubspec.yaml</li> 
-        </ul>
-
-
-
-    <h3>name package</h3>
-    <p>rename: ^2.1.1 <br> 
-        and use commands</p>
-        <ul>
-            <li>flutter pub global activate rename</li> 
-            <li>flutter pub global run rename --bundleId dz.makay.mitaa</li> 
-            <li>flutter pub global run rename --appname "mitaa" </li>
-            <li>flutter pub global run rename --appname YourAppName --target ios </li>
-            <li>flutter pub global run rename --appname YourAppName --target android</li>
-            <li>flutter pub global run rename --appname YourAppName --target web</li>
-            <li>flutter pub global run rename --appname YourAppName --target macOS </li>
-            <li>flutter pub global run rename --appname YourAppName --target windows</li>
-        </ul>
-
-
-
+    <h2>some errors i have faced before</h2>
+    <pre>
+when you face error of unix packges links => check registry 
+sudo apt remove apksigner 
+to remove the error => -bash: /usr/bin/apksigner: cannot execute binary file: Exec format error
+https://stackoverflow.com/questions/37378375/cannot-execute-binary-file-when-trying-to-run-a-shell-script-on-linux
+to removes execution permission
+chmod +x /usr/bin/apksigner
+    </pre>
+    
 </body>
 </html>
