@@ -1,1 +1,30 @@
 
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>This file contains the work i have done to Sign a android app</h1>
+
+    <h2>some information about jsk file or certificate</h2>
+    <p>this certificate build in java system then android framework used it and there is sime details you need to know about</p>
+    <ul>
+        <li>the certificate have an expiration data, after this date android framework wont accept update from apps signed with this expired certificate</li> 
+        <li>you can store more information in this certificate as https certificates</li>
+        <li>in google play you can change the cetificate of your app</li>
+    </ul>
+
+    <h2>first of all you can follow the documentation of flutter how to build release flutter app</h2>
+    <p><a href="https://docs.flutter.dev/deployment/android">link</a> </p>
+
+    <h2>to get information about your key use this command</h2> 
+    <ul>
+        <li>keytool -list -v -keystore upload-keystore.jks -alias upload</li> 
+    </ul>
+
+    <h2>to geerate a key use this command</h2> 
+    <ul>
+        <li>keytool -genkey -v -keystore C:\Users\aymen\Desktop\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias onakize</li> 
+    </ul>
+        
+</body>
+</html>
