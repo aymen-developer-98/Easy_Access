@@ -22,8 +22,44 @@
         <li>follow the docummentation => https://docs.fastlane.tools/getting-started/android/setup/</li>
         <li>first of all you need to set the variable environment follow this video like path variable => https://www.youtube.com/watch?v=zYBYegeTNwY&ab_channel=tumbler</li>
         <li>download key for google play store follow this video => https://www.youtube.com/watch?v=Ls2wkAwXftk</li>
-        <li>use this command to build fasline directory in android directory => fastlane init</li>
+        <li>use this command to build fasline directory in android directory with your informaion => fastlane init</li>
         <li>to update the gem us this command  => bundle update fastlane</li>
+        <li>accept metadata to upload screenshots lates</li>
+        <li>then edit Fastline file to build you tasks <br>
+<pre>  desc "Deploy a new aab version to the Google Play"
+  lane :deploy do
+    supply(
+        track: 'production',
+        skip_upload_apk: true,
+        skip_upload_metadata: true,
+        skip_upload_changelogs: true,
+        skip_upload_images: true,
+        skip_upload_screenshots: true,
+        version_code: 4,
+        version_name: "1.0.1+4",
+        package_name: "dz.makay.mobiborne",
+        aab: "C:\\Users\\aymen\\Desktop\\Saticom\\khidmaty_mobile\\build\\app\\outputs\\bundle\\release\\app-release.aab"
+    )
+    upload_to_play_store
+  end
+
+  desc "Deploy a metadata"
+  lane :deploy_metadata do
+    supply(
+        track: 'production',
+        skip_upload_apk: false,
+        skip_upload_metadata: false,
+        skip_upload_changelogs: false,
+        skip_upload_images: false,
+        skip_upload_screenshots: false,
+        skip_upload_apk: true,
+        skip_upload_aab: true,
+    )
+    upload_to_play_store
+  end
+  </pre>
+        </li>
+        <li>use this command to excute your tasks => bundle exec fastlane deploy </li>
     </ul>
     
     
